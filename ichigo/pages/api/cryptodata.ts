@@ -6,6 +6,10 @@ import { BD } from '../../utils/bittrex';
 import { cryptoData } from '../../utils/compare';
 import compareExchanges from '../../utils/compare';
 
+export interface cryptoResponse{
+  comparison: cryptoData;
+}
+
 export default async function ( req: NextApiRequest, res: NextApiResponse) : Promise<void> {
   if (req.method !== "GET"){ 
       res.status(405).json({ code : 405, message : 'method not allowed'});
@@ -24,7 +28,6 @@ export default async function ( req: NextApiRequest, res: NextApiResponse) : Pro
     return
   }  
   
-  //console.log(testing);
-  res.status(400).json({ code : 400 , test : "failed"}); 
+  res.status(500).json({ code : 400 , test : "failed"}); 
   return
 }
