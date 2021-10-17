@@ -10,7 +10,7 @@ const Home: NextPage = () => {
   
   return (
       <div>
-      <div className="text-red-300">hii</div>
+      <div></div>
       <ShowData/>
       </div>
   )
