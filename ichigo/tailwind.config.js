@@ -43,6 +43,9 @@ module.exports = {
     extend: {},
   },
   plugins: [
+    "postcss-import", 
+    "tailwindcss", 
+    "autoprefixer",
     plugin(function ({ addVariant, e, postcss }) {
 
       addVariant('firefox', ({ container, separator }) => {
