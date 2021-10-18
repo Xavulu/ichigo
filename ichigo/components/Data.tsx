@@ -16,7 +16,7 @@ export function ShowData(){
         refreshWhenOffline: false, 
         errorRetryInterval: 6000, 
         errorRetryCount: 10, 
-        refreshInterval: 120000,
+        refreshInterval: 180000,
     }); 
     if (error){
         errorNotif();
@@ -202,7 +202,7 @@ export function ShowData(){
                             </table> 
                             </div>
                             <div> 
-                                <span className="text-xs flex justify-center text-yellow-700">data from   { rounded.date } next refresh in 2 min </span> 
+                                <span className="text-xs flex justify-center text-yellow-700">data from   { rounded.date } next refresh in 3 min </span> 
                                 <div className="grid grid-cols-1 gap-1 lg:flex justify-between lg:flex justify-between xl:flex justify-between">
                                     <button onClick={() => {mutate(ENDPOINT)} } className="text-sm text-indigo-700 hover:text-pink-500">refresh data</button>
                                     <button onClick={ () => {recScreen(recomend)} } className="text-sm text-green-700 hover:text-red-500">view recommendations</button>
