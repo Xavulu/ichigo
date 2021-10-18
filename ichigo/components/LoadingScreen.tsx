@@ -1,51 +1,12 @@
-import useSWR, {mutate} from "swr";
-import fetcher from '../utils/fetcher';
-import {Toaster} from 'react-hot-toast'; 
-import renderData from '../utils/renderdata';
-import Image from 'next/image';
-import recScreen from "../utils/recScreen";
-import errorNotif from "../utils/errorNotif";
-import { Failed2Load } from "./Failed2Load";
-import { LoadingScreen } from "./LoadingScreen";
+import Image from 'next/image'; 
 
-const ENDPOINT: string = '/api/cryptodata';
-
-export function ShowData(){
-    const {data, error} = useSWR(ENDPOINT, fetcher, {
-        revalidateOnReconnect: true,
-        refreshWhenOffline: false, 
-        errorRetryInterval: 6000, 
-        errorRetryCount: 10, 
-        refreshInterval: 120000,
-    }); 
-    if (error){
-        errorNotif();
-        return (
-            <>
-                <Failed2Load/>
-                <Toaster/>
-            </>
-        );
-    };
-
-    if (!data){
-        return (
-            <>
-                <LoadingScreen/>
-            </>
-        );
-    }; 
-    
-    //
-    const [rounded, recomend] = renderData(data); 
-    console.log(rounded);
-    console.log(recomend);
+export function LoadingScreen(){
     return (
         <>
-            <div className="">
+        <div className="">
                 <div className="flex flex-col">
                     <div className="w-full"> 
-                        <div className="border-b border-gray-200 shadow bg-pink-200 backdrop-filter backdrop-blur-lg bg-opacity-70 border-b border-gray-200 border-dotted border-2 firefox:bg-opacity-90" id="success">
+                        <div className="animate-pulse border-b border-gray-200 shadow bg-pink-200 backdrop-filter backdrop-blur-lg bg-opacity-70 border-b border-gray-200 border-dotted border-2 firefox:bg-opacity-90" id="success">
                             
                             <div className="grid place-items-center">
                             <div>
@@ -93,17 +54,17 @@ export function ShowData(){
                                                 </div>
                                             </div>
                                         </td> 
-                                        <td className="px-6 py-4 text-sm hover:bg-red-100">
+                                        <td className="px-6 py-4 text-sm ">
                                             <div >
-                                                <div className="inline-block text-green-500"> 
-                                                ${ rounded.coinBtcBuy }
+                                                <div className="inline-block text-gray-500"> 
+                                                loading...
                                                 </div>
                                             </div>
                                         </td> 
-                                        <td className="px-6 py-4 text-sm hover:bg-red-100">
+                                        <td className="px-6 py-4 text-sm ">
                                             <div >
-                                                <div className="inline-block text-red-700"> 
-                                                ${ rounded.coinBtcSell }
+                                                <div className="inline-block text-gray-500"> 
+                                                loading...
                                                 </div>
                                             </div>
                                         </td>
@@ -123,17 +84,17 @@ export function ShowData(){
                                                 </div>
                                             </div>
                                         </td> 
-                                        <td className="px-6 py-4 text-sm hover:bg-red-100">
+                                        <td className="px-6 py-4 text-sm ">
                                             <div >
-                                                <div className="inline-block text-green-500"> 
-                                                ${ rounded.bitBtcBuy }
+                                                <div className="inline-block text-gray-500"> 
+                                                loading...
                                                 </div>
                                             </div>
                                         </td> 
-                                        <td className="px-6 py-4 text-sm hover:bg-red-100">
+                                        <td className="px-6 py-4 text-sm ">
                                             <div >
-                                                <div className="inline-block text-red-700"> 
-                                                ${ rounded.bitBtcSell }
+                                                <div className="inline-block text-gray-500"> 
+                                                loading...
                                                 </div>
                                             </div>
                                         </td>
@@ -153,17 +114,17 @@ export function ShowData(){
                                                 </div>
                                             </div>
                                         </td> 
-                                        <td className="px-6 py-4 text-sm hover:bg-red-100">
+                                        <td className="px-6 py-4 text-sm ">
                                             <div >
-                                                <div className="inline-block text-green-500"> 
-                                                ${ rounded.coinEthBuy }
+                                                <div className="inline-block text-gray-500"> 
+                                                loading...
                                                 </div>
                                             </div>
                                         </td> 
-                                        <td className="px-6 py-4 text-sm hover:bg-red-100">
+                                        <td className="px-6 py-4 text-sm ">
                                             <div >
-                                                <div className="inline-block text-red-700"> 
-                                                ${ rounded.coinEthSell }
+                                                <div className="inline-block text-gray-500"> 
+                                                loading...
                                                 </div>
                                             </div>
                                         </td>
@@ -183,17 +144,17 @@ export function ShowData(){
                                                 </div>
                                             </div>
                                         </td> 
-                                        <td className="px-6 py-4 text-sm hover:bg-red-100">
+                                        <td className="px-6 py-4 text-sm ">
                                             <div >
-                                                <div className="inline-block text-green-500"> 
-                                                ${ rounded.bitEthBuy }
+                                                <div className="inline-block text-gray-500"> 
+                                                loading...
                                                 </div>
                                             </div>
                                         </td> 
-                                        <td className="px-6 py-4 text-sm hover:bg-red-100">
+                                        <td className="px-6 py-4 text-sm ">
                                             <div >
-                                                <div className="inline-block text-red-700"> 
-                                                ${ rounded.bitEthSell }
+                                                <div className="inline-block text-gray-500"> 
+                                                loading...
                                                 </div>
                                             </div>
                                         </td>
@@ -202,10 +163,10 @@ export function ShowData(){
                             </table> 
                             </div>
                             <div> 
-                                <span className="text-xs flex justify-center text-yellow-700">data from   { rounded.date } next refresh in 2 min </span> 
+                                <span className="text-xs flex justify-center text-yellow-700">loading data....</span> 
                                 <div className="grid grid-cols-1 gap-1 lg:flex justify-between lg:flex justify-between xl:flex justify-between">
-                                    <button onClick={() => {mutate(ENDPOINT)} } className="text-sm text-indigo-700 hover:text-pink-500">refresh data</button>
-                                    <button onClick={ () => {recScreen(recomend)} } className="text-sm text-green-700 hover:text-red-500">view recommendations</button>
+                                    <button  className="text-sm text-indigo-700 disabled:opacity-50">refresh data</button>
+                                    <button  className="text-sm text-green-700 disabled:opacity-50">view recommendations</button>
                                 </div>
 
                             </div>
@@ -221,10 +182,11 @@ export function ShowData(){
                     </div>
                 </div>
             </div>
-            <Toaster
-                position="top-center"
-                reverseOrder={false}
-            />
+        
+        
+        
+        
+        
         </>
-    );
+    )
 }

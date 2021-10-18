@@ -6,13 +6,9 @@ const Home: NextPage = () => {
   
   return (
       <div>
-        <Image 
-          src="/ichigo.svg"
-          alt="logo for site"
-          width={600}
-          height={600}
-        />
-        <ShowData/>
+        <div className="flex items-center justify-center h-screen">
+          <ShowData/>
+        </div>
       </div>
   )
 }
