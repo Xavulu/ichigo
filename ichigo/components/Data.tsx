@@ -1,9 +1,9 @@
 import useSWR from "swr";
-import { cryptoResponse } from '../pages/api/cryptodata';
 import fetcher from '../utils/fetcher';
 import toast, {Toaster} from 'react-hot-toast'; 
-import { Renderable } from '../utils/renderdata';
 import renderData from '../utils/renderdata';
+
+
 
 const errornotif = () => toast('something went wrong, retrying in 6 seconds...', {
     icon: '❌', 
@@ -26,7 +26,7 @@ export function ShowData(){
         errornotif();
         return (
             <>
-                <div className="absolute top-0 left-0 bottom-0 right-0 text-red-400 flex items-center justify-center">failed</div>
+                <div className="absolute top-0 left-0 bottom-0 right-0 flex items-center justify-center">failed</div>
                 <Toaster/>
             </>
         );
@@ -35,17 +35,19 @@ export function ShowData(){
     if (!data){
         return (
             <>
-                <div className="absolute top-0 left-0 bottom-0 right-0 text-red-400 flex items-center justify-center">loading</div>
+                <div className="absolute top-0 left-0 bottom-0 right-0 flex items-center justify-center">loading</div>
             </>
         );
     }; 
-
+    //{ data.comparison.bittrex.btcBuy }
     const [rounded, recomend] = renderData(data); 
     console.log(rounded);
     console.log(recomend);
     return (
         <>
-            <div className="absolute top-0 left-0 bottom-0 right-0 text-red-400 flex items-center justify-center">{ data.comparison.bittrex.btcBuy }</div>
+            <div className="absolute top-0 left-0 bottom-0 right-0 flex items-center justify-center font-ms-sans">
+                hiii
+            </div>
         </>
     );
 }

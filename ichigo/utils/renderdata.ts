@@ -3,6 +3,7 @@ import { BD } from "./bittrex";
 import { CB } from "./coinbase";
 
 export interface Renderable{
+    date: string;
     coinBtcBuy: number; 
     coinBtcSell: number; 
     coinEthBuy: number; 
@@ -24,6 +25,7 @@ function renderData(crypto: cryptoResponse): [Renderable, Recommendation]{
     const coinbase: CB = crypto.comparison.coinbase;
     const bittrex: BD = crypto.comparison.bittrex; 
     const render: Renderable = {
+        date: crypto.comparison.date,
         coinBtcBuy: Number((coinbase.btcBuy).toFixed(2)),
         coinBtcSell:  Number((coinbase.btcSell).toFixed(2)),
         coinEthBuy:  Number((coinbase.ethBuy).toFixed(2)),
@@ -40,7 +42,6 @@ function renderData(crypto: cryptoResponse): [Renderable, Recommendation]{
         buyETH: crypto.comparison.ethBuyPlatform, 
         sellETH: crypto.comparison.ethSellPlatform,
     };
-
 
     return [render, recc];
 }
